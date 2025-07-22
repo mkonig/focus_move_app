@@ -1,0 +1,10 @@
+mdformat
+shellcheck
+argjson
+devbox
+lefthook
+mkonig
+nvim
+pulsemixer
+sxhkd
+wmctrl

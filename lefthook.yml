@@ -1,0 +1,12 @@
+pre-commit:
+  parallel: true
+  commands:
+    shellcheck:
+      glob: "*.sh"
+      run: shellcheck {staged_files}
+    markdown-lint:
+      glob: "*.md"
+      run: markdownlint {staged_files}
+    mdformat:
+      glob: "*.md"
+      run: mdformat {staged_files}
