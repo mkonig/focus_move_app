@@ -1,9 +1,249 @@
 {
   "lockfile_version": "1",
   "packages": {
+    "chglog@latest": {
+      "last_modified": "2025-07-13T22:45:35Z",
+      "resolved": "github:NixOS/nixpkgs/a421ac6595024edcfbb1ef950a3712b89161c359#chglog",
+      "source": "devbox-search",
+      "version": "0.7.3",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/h0dy08z4kxw347n88awqd4d0aniij9m8-chglog-0.7.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/h0dy08z4kxw347n88awqd4d0aniij9m8-chglog-0.7.3"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/0z2m7isr9da3aca1qi4kxj9zjc89f995-chglog-0.7.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/0z2m7isr9da3aca1qi4kxj9zjc89f995-chglog-0.7.3"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/5b51yybcimks4hlyz25mkh1zxq2gqlp6-chglog-0.7.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/5b51yybcimks4hlyz25mkh1zxq2gqlp6-chglog-0.7.3"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/6sb6x6bmblbmqvkw3mb8z1lxp54gm8dh-chglog-0.7.3",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/6sb6x6bmblbmqvkw3mb8z1lxp54gm8dh-chglog-0.7.3"
+        }
+      }
+    },
+    "cocogitto@latest": {
+      "last_modified": "2025-07-13T22:45:35Z",
+      "resolved": "github:NixOS/nixpkgs/a421ac6595024edcfbb1ef950a3712b89161c359#cocogitto",
+      "source": "devbox-search",
+      "version": "6.3.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/k40c816wzjq18brgzi4blgnfdajy6rdr-cocogitto-6.3.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/k40c816wzjq18brgzi4blgnfdajy6rdr-cocogitto-6.3.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/msb62crkwakxc8d35g2l8cshrkj99i10-cocogitto-6.3.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/msb62crkwakxc8d35g2l8cshrkj99i10-cocogitto-6.3.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/zas0lc4shc64mszajxa7fifx0izpihas-cocogitto-6.3.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/zas0lc4shc64mszajxa7fifx0izpihas-cocogitto-6.3.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/z1bpnrg7nxrqpg3b0k0j6r95xcr5s65m-cocogitto-6.3.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/z1bpnrg7nxrqpg3b0k0j6r95xcr5s65m-cocogitto-6.3.0"
+        }
+      }
+    },
+    "commitlint@latest": {
+      "last_modified": "2025-07-13T22:45:35Z",
+      "resolved": "github:NixOS/nixpkgs/a421ac6595024edcfbb1ef950a3712b89161c359#commitlint",
+      "source": "devbox-search",
+      "version": "19.8.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ixhyqhidv3dm17dpj1xkmf29wfxcr058-_at_commitlint_slash_cli-19.8.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/ixhyqhidv3dm17dpj1xkmf29wfxcr058-_at_commitlint_slash_cli-19.8.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/jc2f5acf3jwc6s7vj40w4gjz1lygciaq-_at_commitlint_slash_cli-19.8.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/jc2f5acf3jwc6s7vj40w4gjz1lygciaq-_at_commitlint_slash_cli-19.8.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/0kkp375c6np1xr2kz4s5s5g45bqyjzvp-_at_commitlint_slash_cli-19.8.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/0kkp375c6np1xr2kz4s5s5g45bqyjzvp-_at_commitlint_slash_cli-19.8.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/a074kx47bzzwwvnrz1l3dbn2fdn6h6vm-_at_commitlint_slash_cli-19.8.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/a074kx47bzzwwvnrz1l3dbn2fdn6h6vm-_at_commitlint_slash_cli-19.8.0"
+        }
+      }
+    },
+    "git-chglog@latest": {
+      "last_modified": "2025-07-13T22:45:35Z",
+      "resolved": "github:NixOS/nixpkgs/a421ac6595024edcfbb1ef950a3712b89161c359#git-chglog",
+      "source": "devbox-search",
+      "version": "0.15.4",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/k36gbqcva2xn17sy5vda7hrlldkjism0-git-chglog-0.15.4",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/k36gbqcva2xn17sy5vda7hrlldkjism0-git-chglog-0.15.4"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/c7b9pr5hfc18qkmk4rbizrp3n9hy7ccf-git-chglog-0.15.4",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/c7b9pr5hfc18qkmk4rbizrp3n9hy7ccf-git-chglog-0.15.4"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/366j21828vaa22qmnmqa28hsyk3iib8h-git-chglog-0.15.4",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/366j21828vaa22qmnmqa28hsyk3iib8h-git-chglog-0.15.4"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ysjh7x10xdc4dv5ivjsf0yil3mr6bq4x-git-chglog-0.15.4",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/ysjh7x10xdc4dv5ivjsf0yil3mr6bq4x-git-chglog-0.15.4"
+        }
+      }
+    },
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
       "last_modified": "2025-07-18T12:29:53Z",
       "resolved": "github:NixOS/nixpkgs/8131c0ea9df6293a247be743a387ff725e464db7?lastModified=1752841793&narHash=sha256-pGvcN%2FyiJ4e3%2FhgvTwkyZvl6c3HuLLCY%2FhjEzDuQB54%3D"
+    },
+    "gitversion@latest": {
+      "last_modified": "2025-07-13T22:45:35Z",
+      "resolved": "github:NixOS/nixpkgs/a421ac6595024edcfbb1ef950a3712b89161c359#gitversion",
+      "source": "devbox-search",
+      "version": "6.3.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/5vk7ap3hi455dabbs9yfnmm4i7y7jriy-dotnet-gitversion-6.3.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/5vk7ap3hi455dabbs9yfnmm4i7y7jriy-dotnet-gitversion-6.3.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/valf08gk27ara17wb797slmsm00g756d-dotnet-gitversion-6.3.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/valf08gk27ara17wb797slmsm00g756d-dotnet-gitversion-6.3.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/6h6sm5n8npaify3h6ncd0g02z64l0hf3-dotnet-gitversion-6.3.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/6h6sm5n8npaify3h6ncd0g02z64l0hf3-dotnet-gitversion-6.3.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/lfrbg8vcs3d0z25ahh92qfpd2461ia6x-dotnet-gitversion-6.3.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/lfrbg8vcs3d0z25ahh92qfpd2461ia6x-dotnet-gitversion-6.3.0"
+        }
+      }
     },
     "lefthook@latest": {
       "last_modified": "2025-07-13T22:45:35Z",

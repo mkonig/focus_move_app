@@ -4,7 +4,12 @@
     "lefthook@latest",
     "nodePackages.cspell@latest",
     "shellcheck@latest",
-    "markdownlint-cli@latest"
+    "markdownlint-cli@latest",
+    "git-chglog@latest",
+    "chglog@latest",
+    "gitversion@latest",
+    "commitlint@latest",
+    "cocogitto@latest"
   ],
   "shell": {
     "init_hook": [
