@@ -20,7 +20,7 @@ tag_prefix = "v"
 
 [changelog]
 path = "CHANGELOG.md"
-authors = []
+authors = [{ username = "mkonig", signature = "mkonig" }]
 
 [bump_profiles]
 
