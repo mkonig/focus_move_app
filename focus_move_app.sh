@@ -3,6 +3,7 @@
 app="$1"
 mode="$2"
 config_file="$XDG_CONFIG_HOME/focus_move_app/focus_move_app.toml"
+
 LOG_FILE="$(dirname "$(mktemp -u)")/focus_move_app.log"
 
 function create_log_file() {
@@ -22,13 +23,22 @@ function get_app_property() {
     local value=""
 
     if [ -n "$app" ] && [ -n "$property" ]; then
-        value=$(toml get "$config_file" "${app}.${property}" --raw)
+        value=$(toml get "$config_file" "app.${app}.${property}" --raw)
     fi
     echo "$value"
 }
 
+get_prioritized_apps(){
+    local -n prioritized_apps_list=$1
+    # shellcheck disable=SC2034
+    mapfile -t prioritized_apps_list < <( toml get "$config_file" "prioritize" | jq -r '.[]' )
+}
+
+
 app_class="$(get_app_property "$app" "class")"
 app_cmd="$(get_app_property "$app" "cmd")"
+declare -a prioritized_apps
+get_prioritized_apps prioritized_apps
 
 is_app_running() {
     if [[ -z $app_class ]]; then
@@ -107,18 +117,16 @@ move_unfocused_app_away() {
     fi
 }
 
-move_important_app_to_the_right() {
-    declare -a apps=("tmux" "nvim")
-    for app in "${apps[@]}" ; do
+move_prioritized_app_to_the_right() {
+    for app in "${prioritized_apps[@]}" ; do
         i3-msg "[class=$(get_app_property "$app" "class")] move right"
     done
 }
 
-focus_important_app() {
+focus_prioritized_app() {
     declare -a apps_on_workspace
     apps_on_focused_workspace_list apps_on_workspace
-    declare -a apps_by_importance=("nvim" "tmux")
-    for app in "${apps_by_importance[@]}" ; do
+    for app in "${prioritized_apps[@]}" ; do
         class=$(get_app_property "$app" "class")
         if [[ ${apps_on_workspace[*]} =~ ${class} ]]; then
             i3-msg "[class=${class}] focus"
@@ -150,8 +158,8 @@ move() {
     fi
     i3-msg "[class=${app_class}] move to workspace current"
     i3-msg "[class=${app_class}] focus"
-    move_important_app_to_the_right
-    focus_important_app
+    move_prioritized_app_to_the_right
+    focus_prioritized_app
 }
 
 only() {
