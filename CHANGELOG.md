@@ -2,6 +2,16 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.2.0 - 2025-07-23
+#### Continuous Integration
+- Create main.yml - (a37d6b3) - mkonig
+#### Documentation
+- Improved documentation. - (a6a60b8) - mkonig
+#### Features
+- Config option to define list of prioritzed apps. - (69b314b) - mkonig
+
+- - -
+
 ## v0.1.0 - 2025-07-22
 #### Build system
 - Add authors to cocogitto config. - (5b9829a) - mkonig
