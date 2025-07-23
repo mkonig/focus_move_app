@@ -1,21 +1,21 @@
 prioritize = ["nvim", "tmux"]
 
-[nvim]
+[app.nvim]
 class = "terminal.nvim"
 cmd = "xterm -class ${app_class} -e nvim"
 
-[tmux]
+[app.tmux]
 class = "terminal.tmux"
 cmd = "xterm -class ${app_class} -e tmux"
 
-[chrome]
+[app.chrome]
 class = "Google-chrome"
 cmd = "google-chrome-stable"
 
-[firefox]
+[app.firefox]
 class = "firefox"
 cmd = "firefox"
 
-[zen-browser]
+[app.zen-browser]
 class = "zen"
 cmd = "zen"

@@ -22,9 +22,10 @@ The problem with this arose when I wanted to have 2 apps side by side.
 For example: Coding in nvim while seeing live output in tmux.
 
 Moving nvim to the tmux workspace mixed up the workspace assignment.
-Using shortcuts to go to another app and back to nvim did not work
-because nvim was no longer on its 'bound' workspace.
-I moved it to the tmux workspace and I would first have to move nvim back to its 'bound' workspace
+Using shortcuts to go to another app's workspace and back to nvim's workspace did not lead to the
+wanted result.
+Because nvim was no longer on its 'bound' workspace.
+I would first have to move nvim back to its 'bound' workspace
 to make the shortcut's work.
 
 ## The solution
@@ -35,14 +36,31 @@ matter its location.
 In comes **focus_move_app**. It has 3 actions.
 
 - **focus**
+
+  ```bash
+  focus_move_app.sh nvim focus
+  ```
+
   - Focus an app if it is already running.
   - If the app is not started it will start it on a new workspace.
+
 - **move**
+
+  ```bash
+  focus_move_app.sh nvim move
+  ```
+
   - Move an app to the current workspace.
   - Start it if it is not running yet.
+
 - **only**
+
+  ```bash
+  focus_move_app.sh nvim only
+  ```
+
   - Make the currently focused app the only one on the workspace.
-  - Only works if app is already running.
+  - This only works if app is already running.
 
 ## Example setup
 
@@ -50,12 +68,12 @@ Using [sxhkd](https://github.com/baskerville/sxhkd) as hotkey daemon.
 
 ```config
 mod4 + o
-    focus_move_app "" "only"
+    focus_move_app.sh "" "only"
 
 mod4 + {_, control + } {n,t,z,c,f}
     mode={"focus","move"}; \
     app={"nvim","tmux","zen-browser","chrome","firefox"}; \
-    focus_move_app "$app" "$mode"
+    focus_move_app.sh "$app" "$mode"
 ```
 
 This would make mod4+n focus nvim. Mod4+ctrl+n move nvim to the current
@@ -70,11 +88,17 @@ Focus tmux and mod4+o will move nvim away again.
 See [focus_move_app.toml](focus_move_app.toml).
 
 ```toml
-[nvim]
+prioritize = [ "nvim", "tmux" ]
+
+[app.nvim]
 class = "terminal.nvim"
 cmd = "xterm -class ${app_class} -e nvim"
 
-[tmux]
+[app.tmux]
 class = "terminal.tmux"
 cmd = "xterm -class ${app_class} -e tmux"
 ```
+
+- prioritize
+  - When using the **move** action prioritized apps will be positioned on the right and get focus.
+  - Use the app header without the **app.** part.
