@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v0.3.0](https://github.com/mkonig/focus_move_app/compare/62451a899131d1fef2d4939bd5afd1bd6c349659..v0.3.0) - 2025-08-01
+#### Features
+- Add config option for app position. - ([62451a8](https://github.com/mkonig/focus_move_app/commit/62451a899131d1fef2d4939bd5afd1bd6c349659)) - [@mkonig](https://github.com/mkonig)
+
+- - -
+
 ## v0.2.0 - 2025-07-23
 #### Continuous Integration
 - Create main.yml - (a37d6b3) - mkonig
