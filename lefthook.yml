@@ -11,7 +11,11 @@ pre-commit:
       run: shellcheck {staged_files}
     markdown-lint:
       glob: "*.md"
+      exclude:
+        - CHANGELOG.md
       run: markdownlint {staged_files}
     mdformat:
       glob: "*.md"
+      exclude:
+        - CHANGELOG.md
       run: mdformat {staged_files}
