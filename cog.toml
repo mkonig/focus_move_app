@@ -21,6 +21,10 @@ tag_prefix = "v"
 [changelog]
 path = "CHANGELOG.md"
 authors = [{ username = "mkonig", signature = "mkonig" }]
+template = "remote"
+remote = "github.com"
+repository = "focus_move_app"
+owner = "mkonig"
 
 [bump_profiles]
 

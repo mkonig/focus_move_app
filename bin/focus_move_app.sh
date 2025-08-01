@@ -1,23 +1,24 @@
 #!/usr/bin/env bash
 
 app="$1"
-mode="$2"
-config_file="$XDG_CONFIG_HOME/focus_move_app/focus_move_app.toml"
+action="$2"
+config_file="$HOME/privdev/focus_move_app/focus_move_app.toml"
+# config_file="$XDG_CONFIG_HOME/focus_move_app/focus_move_app.toml"
 
 LOG_FILE="$(dirname "$(mktemp -u)")/focus_move_app.log"
 
-function create_log_file() {
+create_log_file() {
     if [ ! -f "$LOG_FILE" ]; then
         touch "$LOG_FILE"
     fi
 }
 
-function log() {
+log() {
     local message="$1"
     echo "$message" >> "$LOG_FILE"
 }
 
-function get_app_property() {
+get_app_property() {
     local app="$1"
     local property="$2"
     local value=""
@@ -31,7 +32,11 @@ function get_app_property() {
 get_prioritized_apps(){
     local -n prioritized_apps_list=$1
     # shellcheck disable=SC2034
-    mapfile -t prioritized_apps_list < <( toml get "$config_file" "prioritize" | jq -r '.[]' )
+    mapfile -t prioritized_apps_list < <( toml get "$config_file" "prioritize.apps" | jq -r '.[]' )
+}
+
+get_prioritized_position(){
+    toml get "$config_file" "prioritize.position" --raw
 }
 
 
@@ -39,6 +44,7 @@ app_class="$(get_app_property "$app" "class")"
 app_cmd="$(get_app_property "$app" "cmd")"
 declare -a prioritized_apps
 get_prioritized_apps prioritized_apps
+prioritized_position="$(get_prioritized_position)"
 
 is_app_running() {
     if [[ -z $app_class ]]; then
@@ -117,27 +123,20 @@ move_unfocused_app_away() {
     fi
 }
 
-move_prioritized_app_to_the_right() {
-    for app in "${prioritized_apps[@]}" ; do
-        i3-msg "[class=$(get_app_property "$app" "class")] move right"
-    done
+position_app() {
+    local app=$1
+    local position=$2
+    i3-msg "[class=$(get_app_property "$app" "class")] move ${position}"
 }
 
-focus_prioritized_app() {
-    declare -a apps_on_workspace
-    apps_on_focused_workspace_list apps_on_workspace
-    for app in "${prioritized_apps[@]}" ; do
-        class=$(get_app_property "$app" "class")
-        if [[ ${apps_on_workspace[*]} =~ ${class} ]]; then
-            i3-msg "[class=${class}] focus"
-            return
-        fi
-    done
+focus_app() {
+    local app=$1
+    i3-msg "[class=$(get_app_property "$app" "class")] focus"
 }
 
-focus() {
+action_focus() {
     if is_app_running ; then
-        i3-msg "[class=$app_class] focus"
+        focus_app "$app"
     else
         if ! is_utility ; then
             i3-msg "workspace $(get_new_workspace_number)"
@@ -146,7 +145,20 @@ focus() {
     fi
 }
 
-move() {
+handle_prioritized_apps() {
+    declare -a apps_on_workspace
+    apps_on_focused_workspace_list apps_on_workspace
+    for app in "${prioritized_apps[@]}" ; do
+        class=$(get_app_property "$app" "class")
+        if [[ ${apps_on_workspace[*]} =~ ${class} ]]; then
+            position_app "$app" "$prioritized_position"
+            focus_app "$app"
+            return
+        fi
+    done
+}
+
+action_move() {
     declare -a apps_on_workspace
     apps_on_focused_workspace_list apps_on_workspace
     if [[ ${apps_on_workspace[*]} =~ ${app_class} ]]; then
@@ -158,21 +170,20 @@ move() {
     fi
     i3-msg "[class=${app_class}] move to workspace current"
     i3-msg "[class=${app_class}] focus"
-    move_prioritized_app_to_the_right
-    focus_prioritized_app
+    handle_prioritized_apps
 }
 
-only() {
+action_only() {
     new_workspace_number=$(get_new_workspace_number)
     i3-msg "move container to workspace $new_workspace_number; workspace $new_workspace_number"
 }
 
-function main() {
+main() {
     create_log_file
-    case "$mode" in
-        "focus") focus;;
-        "move") move;;
-        "only") only;;
+    case "$action" in
+        "focus") action_focus;;
+        "move") action_move;;
+        "only") action_only;;
     esac
 }
 

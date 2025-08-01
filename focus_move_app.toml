@@ -1,4 +1,6 @@
-prioritize = ["nvim", "tmux"]
+[prioritize]
+apps = ["nvim", "tmux"]
+position = "right"
 
 [app.nvim]
 class = "terminal.nvim"

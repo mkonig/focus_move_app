@@ -88,7 +88,9 @@ Focus tmux and mod4+o will move nvim away again.
 See [focus_move_app.toml](focus_move_app.toml).
 
 ```toml
-prioritize = [ "nvim", "tmux" ]
+[prioritize]
+apps = [ "nvim", "tmux" ]
+position = "right"
 
 [app.nvim]
 class = "terminal.nvim"
@@ -100,5 +102,8 @@ cmd = "xterm -class ${app_class} -e tmux"
 ```
 
 - prioritize
-  - When using the **move** action prioritized apps will be positioned on the right and get focus.
+  - When using the **move** action prioritized apps will be positioned in the given position
+    and get focus.
+  - The apps list is checked in order, so that the first app in the apps list that is also on the
+    current workspace is treated as the prioritized app.
   - Use the app header without the **app.** part.
