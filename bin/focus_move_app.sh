@@ -2,8 +2,7 @@
 
 app="$1"
 action="$2"
-config_file="$HOME/privdev/focus_move_app/focus_move_app.toml"
-# config_file="$XDG_CONFIG_HOME/focus_move_app/focus_move_app.toml"
+config_file="$XDG_CONFIG_HOME/focus_move_app/focus_move_app.toml"
 
 LOG_FILE="$(dirname "$(mktemp -u)")/focus_move_app.log"
 
