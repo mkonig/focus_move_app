@@ -5,6 +5,14 @@
 - **(version)** v0.3.0 - ([b72ce89](https://github.com/mkonig/focus_move_app/commit/b72ce89afe1b0475207be9a09002331bfaffd2a4)) - [@mkonig](https://github.com/mkonig)
 
 - - -
+## [v0.3.1](https://github.com/mkonig/focus_move_app/compare/698240530536a9fce6059116fe5f3cc6fa75a959..v0.3.1) - 2025-08-04
+#### Bug Fixes
+- Config file points to /home/mkonig/.config/focus_move_app/focus_move_app.toml - ([d416ee3](https://github.com/mkonig/focus_move_app/commit/d416ee368b1f575b36e0aefb5513284cbd1f6f29)) - [@mkonig](https://github.com/mkonig)
+#### Documentation
+- New changelog with links. - ([6982405](https://github.com/mkonig/focus_move_app/commit/698240530536a9fce6059116fe5f3cc6fa75a959)) - [@mkonig](https://github.com/mkonig)
+
+- - -
+
 
 ## [v0.2.0](https://github.com/mkonig/focus_move_app/compare/v0.1.0..v0.2.0) - 2025-08-01
 #### Continuous Integration
